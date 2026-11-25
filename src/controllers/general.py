@@ -1,9 +1,10 @@
-from importlib import metadata
+import tomllib
 
 def index():
+  project_details = tomllib.load(open("pyproject.toml", "rb"))["project"]
   return {
     "service": "lift-analyzer-service",
-    "version": metadata.version
+    "version": project_details["version"],
   }
 
 def health():
