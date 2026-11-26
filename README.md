@@ -33,6 +33,7 @@
 ### Prerequisites
 
 - [Python](https://www.python.org/downloads/)
+- [UV](https://docs.astral.sh/uv/getting-started/installation/)
 
 ### Installation
 
@@ -41,27 +42,15 @@
    git clone https://github.com/fullsterkur-ai/lift-analyzer-service.git
    cd lift-analyzer-service
    ```
-2. Create and activate a virtual environment
+2. Setup project environment
    ```
-   python -m venv .venv
+   uv sync
    ```
-   Windows:
-   ```
-   .venv\Scripts\activate
-   ```
-   macOS/Linux:
-   ```
-   source .venv/bin/activate
-   ```
-3. Install dependencies
-   ```
-   pip install -r requirements.txt
-   ```
-
+   
 ### Running the Service
 
 ```
-uvicorn main:app --reload
+uv run fastapi dev --port 8001
 ```
 
 ---
