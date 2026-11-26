@@ -14,6 +14,7 @@
         <li><a href="#running-the-service">Running the Service</a></li>
       </ul>
     </li>
+    <li><a href="#scripts-and-tools">Scripts and Tools</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
   </ol>
 </details>
@@ -46,6 +47,10 @@
    ```
    uv sync
    ```
+3. Prepare dev tooling
+   ```
+   python .githooks/prepare.py
+   ```
    
 ### Running the Service
 
@@ -54,6 +59,20 @@ uv run fastapi dev --port 8001
 ```
 
 ---
+
+## Scripts and Tools
+
+The following commands are available for formatting and linting the codebase.
+
+| Command | Description |
+|---|---|
+| `uv run ruff format --check .` | Check code formatting |
+| `uv run ruff format .` | Automatically format code |
+| `uv run ruff check .` | Check for linting issues |
+| `uv run ruff check --fix .` | Automatically fix linting issues |
+
+---
+
 
 ## Project Structure
 

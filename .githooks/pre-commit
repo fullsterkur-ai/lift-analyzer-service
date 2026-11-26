@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cp .githooks/pre-commit .git/hooks/pre-commit
+
+
+echo "Checking formatting..."
+if ! uv run --no-sync ruff format --check .; then
+  echo "Formatting check failed. Run 'uv run ruff format .' to fix automatically."
+  exit 1
+fi
+
+echo "Running Ruff lint..."
+if ! uv run --no-sync ruff check .; then
+  echo "Lint failed. Run 'uv run ruff check --fix .' to automatically fix issues."
+  exit 1
+fi
+
+echo "All checks passed."
