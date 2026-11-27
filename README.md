@@ -14,6 +14,7 @@
         <li><a href="#running-the-service">Running the Service</a></li>
       </ul>
     </li>
+    <li><a href="#scripts-and-tools">Scripts and Tools</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
   </ol>
 </details>
@@ -33,6 +34,7 @@
 ### Prerequisites
 
 - [Python](https://www.python.org/downloads/)
+- [UV](https://docs.astral.sh/uv/getting-started/installation/)
 
 ### Installation
 
@@ -41,30 +43,36 @@
    git clone https://github.com/fullsterkur-ai/lift-analyzer-service.git
    cd lift-analyzer-service
    ```
-2. Create and activate a virtual environment
+2. Setup project environment
    ```
-   python -m venv .venv
+   uv sync
    ```
-   Windows:
+3. Prepare dev tooling
    ```
-   .venv\Scripts\activate
+   python .githooks/prepare.py
    ```
-   macOS/Linux:
-   ```
-   source .venv/bin/activate
-   ```
-3. Install dependencies
-   ```
-   pip install -r requirements.txt
-   ```
-
+   
 ### Running the Service
 
 ```
-uvicorn main:app --reload
+uv run fastapi dev --port 8001
 ```
 
 ---
+
+## Scripts and Tools
+
+The following commands are available for formatting and linting the codebase.
+
+| Command | Description |
+|---|---|
+| `uv run ruff format --check .` | Check code formatting |
+| `uv run ruff format .` | Automatically format code |
+| `uv run ruff check .` | Check for linting issues |
+| `uv run ruff check --fix .` | Automatically fix linting issues |
+
+---
+
 
 ## Project Structure
 
